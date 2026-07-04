@@ -144,6 +144,7 @@ img {
   gap: 6px;
 }
 
+.header-actions a,
 .header-actions button,
 .menu-button {
   display: inline-grid;
@@ -156,6 +157,7 @@ img {
   cursor: pointer;
 }
 
+.header-actions a:active,
 .header-actions button:active,
 .menu-button:active {
   transform: translateY(1px);
@@ -466,6 +468,99 @@ img {
   margin-top: 42px;
 }
 
+.section-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 28px;
+  padding: 34px 0 24px;
+  border-bottom: 8px solid var(--color-ink);
+}
+
+.section-hero span {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 9px 13px;
+  background: var(--color-red);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.section-hero h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(44px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.section-hero p {
+  max-width: 640px;
+  margin: 16px 0 0;
+  color: var(--color-muted);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.section-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 28px;
+}
+
+.section-story-list,
+.search-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  margin-top: 28px;
+}
+
+.search-form {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  background: var(--color-soft);
+  border: 1px solid var(--color-line);
+}
+
+.search-form label {
+  font-weight: 850;
+}
+
+.search-form div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.search-form input {
+  min-height: 48px;
+  width: 100%;
+  border: 1px solid var(--color-line);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  padding: 0 14px;
+}
+
+.search-form button {
+  min-height: 48px;
+  border: 0;
+  background: var(--color-red);
+  color: #ffffff;
+  padding: 0 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.search-form button:active {
+  transform: translateY(1px);
+}
+
 .shorts-scroll {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -695,6 +790,8 @@ img {
 
   .lead-grid,
   .news-layout,
+  .section-hero,
+  .section-page-grid,
   .newsletter-card,
   .footer-inner {
     grid-template-columns: 1fr;
@@ -705,6 +802,8 @@ img {
   }
 
   .news-list,
+  .section-story-list,
+  .search-results,
   .category-board {
     grid-template-columns: 1fr;
   }
@@ -778,6 +877,7 @@ img {
   .video-grid,
   .category-grid,
   .podcast-grid,
+  .search-form div,
   .newsletter-card form div {
     grid-template-columns: 1fr;
   }

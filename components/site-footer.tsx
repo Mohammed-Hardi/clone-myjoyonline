@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { navItems, podcasts } from "@/lib/news-data";
 
 export function SiteFooter() {
@@ -10,9 +11,9 @@ export function SiteFooter() {
         </div>
         <nav aria-label="Footer navigation">
           {navItems.slice(1, 7).map((item) => (
-            <a href="#" key={item}>
-              {item}
-            </a>
+            <Link href={item.href} key={item.label}>
+              {item.label}
+            </Link>
           ))}
         </nav>
         <div className="footer-programs">

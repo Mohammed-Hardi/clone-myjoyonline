@@ -16,16 +16,16 @@ export type CategoryBlock = {
 const imageBase = "https://www.myjoyonline.com/wp-content/uploads";
 
 export const navItems = [
-  "Home",
-  "News",
-  "Arts and Culture",
-  "Business",
-  "Sports",
-  "Opinion",
-  "Research",
-  "Live TV/Radio",
-  "Media",
-  "Elections"
+  { label: "Home", href: "/" },
+  { label: "News", href: "/news" },
+  { label: "Arts and Culture", href: "/arts-and-culture" },
+  { label: "Business", href: "/business" },
+  { label: "Sports", href: "/sports" },
+  { label: "Opinion", href: "/opinion" },
+  { label: "Research", href: "/research" },
+  { label: "Live TV/Radio", href: "/live-tv-radio" },
+  { label: "Media", href: "/media" },
+  { label: "Elections", href: "/elections" }
 ];
 
 export const topStory: Story = {
@@ -261,3 +261,83 @@ export const mostRecent = [
   "University safety concerns rise after recent student deaths",
   "Health Minister outlines regional hospital construction plan"
 ];
+
+export type SectionPage = {
+  slug: string;
+  title: string;
+  description: string;
+  featured: Story;
+  stories: Story[];
+};
+
+const sectionStoryPool = [...newsStories, topStory, inFocus, ...shorts, ...videos, ...categoryBlocks.flatMap((block) => [block.lead, ...block.stories])];
+
+export const sectionPages: SectionPage[] = [
+  {
+    slug: "news",
+    title: "News",
+    description: "Breaking headlines, national updates, public safety, politics, and developing stories across Ghana.",
+    featured: newsStories[0],
+    stories: newsStories
+  },
+  {
+    slug: "arts-and-culture",
+    title: "Arts and Culture",
+    description: "Music, film, stage, books, festivals, and the people shaping Ghana's creative scene.",
+    featured: categoryBlocks[2].lead,
+    stories: [categoryBlocks[2].lead, ...categoryBlocks[2].stories, ...sectionStoryPool.filter((story) => story.category === "Arts")]
+  },
+  {
+    slug: "business",
+    title: "Business",
+    description: "Markets, banking, industry, entrepreneurship, consumer affairs, and economic policy.",
+    featured: categoryBlocks[0].lead,
+    stories: [categoryBlocks[0].lead, ...categoryBlocks[0].stories]
+  },
+  {
+    slug: "sports",
+    title: "Sports",
+    description: "Football, athletics, fixtures, analysis, and stories from Ghanaian and global sport.",
+    featured: topStory,
+    stories: [topStory, categoryBlocks[1].lead, ...categoryBlocks[1].stories]
+  },
+  {
+    slug: "opinion",
+    title: "Opinion",
+    description: "Columns, analysis, civic debate, and sharp perspectives from trusted voices.",
+    featured: categoryBlocks[3].lead,
+    stories: [categoryBlocks[3].lead, ...categoryBlocks[3].stories, inFocus]
+  },
+  {
+    slug: "research",
+    title: "Research",
+    description: "Data-led reporting, explainers, studies, and public-interest investigations.",
+    featured: inFocus,
+    stories: [inFocus, newsStories[2], newsStories[5], categoryBlocks[3].lead]
+  },
+  {
+    slug: "live-tv-radio",
+    title: "Live TV/Radio",
+    description: "Listen live, follow Joy programming, and catch up on shows from the Joy brands.",
+    featured: videos[2],
+    stories: videos
+  },
+  {
+    slug: "media",
+    title: "Media",
+    description: "Video reports, podcasts, explainers, live shows, and multimedia updates.",
+    featured: videos[0],
+    stories: [...videos, ...shorts]
+  },
+  {
+    slug: "elections",
+    title: "Elections",
+    description: "Election news, campaign coverage, civic education, polling analysis, and result updates.",
+    featured: newsStories[4],
+    stories: [newsStories[4], categoryBlocks[3].lead, newsStories[0], inFocus]
+  }
+];
+
+export function getSectionPage(slug: string) {
+  return sectionPages.find((page) => page.slug === slug);
+}

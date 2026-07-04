@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { AdBanner } from "@/components/ad-banner";
 import { CategorySection } from "@/components/category-section";
 import { NewsletterCard } from "@/components/newsletter-card";
@@ -29,11 +30,11 @@ export default function Home() {
             </aside>
           </section>
 
-          <section className="news-layout" aria-label="News stream">
+          <section className="news-layout" id="news" aria-label="News stream">
             <div className="news-column">
               <div className="section-heading">
                 <h2>News</h2>
-                <a href="#">Latest</a>
+                <Link href="/news">Latest</Link>
               </div>
               <div className="news-list">
                 {newsStories.map((story) => (
@@ -55,10 +56,10 @@ export default function Home() {
 
           <ShortsRail shorts={shorts} />
 
-          <section className="podcast-strip" aria-labelledby="podcasts-heading">
+          <section className="podcast-strip" id="live-tv-radio" aria-labelledby="podcasts-heading">
             <div className="section-heading">
               <h2 id="podcasts-heading">Podcasts</h2>
-              <a href="#">Listen live</a>
+              <Link href="/live-tv-radio">Listen live</Link>
             </div>
             <div className="podcast-grid">
               {podcasts.map((podcast) => (
@@ -69,10 +70,10 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="video-section" aria-labelledby="videos-heading">
+          <section className="video-section" id="media" aria-labelledby="videos-heading">
             <div className="section-heading">
               <h2 id="videos-heading">Videos</h2>
-              <a href="#">Watch all</a>
+              <Link href="/media">Watch all</Link>
             </div>
             <div className="video-grid">
               {videos.map((story) => (
