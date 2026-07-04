@@ -7,7 +7,7 @@ type CategorySectionProps = {
 };
 
 export function CategorySection({ block }: CategorySectionProps) {
-  const slug = block.title.toLowerCase().replace(/\s+/g, "-");
+  const slug = block.title === "Arts and Culture" ? "arts-culture" : block.title.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <section className="category-section" id={slug} aria-labelledby={`${slug}-heading`}>

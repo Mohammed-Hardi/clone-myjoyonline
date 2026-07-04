@@ -18,7 +18,7 @@ const imageBase = "https://www.myjoyonline.com/wp-content/uploads";
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "News", href: "/news" },
-  { label: "Arts and Culture", href: "/arts-and-culture" },
+  { label: "Arts and Culture", href: "/arts-culture" },
   { label: "Business", href: "/business" },
   { label: "Sports", href: "/sports" },
   { label: "Opinion", href: "/opinion" },
@@ -48,44 +48,44 @@ export const inFocus: Story = {
 
 export const newsStories: Story[] = [
   {
-    title: "Supreme Court ruling renews debate over removal of top judge",
+    title: "Black Stars lost organisation after Senaya's injury",
     category: "News",
-    image: `${imageBase}/2026/07/Samson-Lardy-Anyenini-125x140.jpeg`,
+    image: `${imageBase}/2026/07/455e20d0-3764-11f1-879d-1b2f5c3919b8.png-330x186.webp`,
     href: "#",
     time: "22 min ago"
   },
   {
-    title: "FDA raid at Nungua lounge leads to two arrests",
+    title: "Jerome Opoku reflects on Ghana's World Cup exit",
     category: "News",
-    image: `${imageBase}/2026/07/ita-233x104.jpg`,
+    image: `${imageBase}/2026/07/Jerome-Opoku7-e1783143471580-330x180.png`,
     href: "#",
     time: "41 min ago"
   },
   {
-    title: "Flood losses put renewed attention on Accra sanitation costs",
-    category: "News",
-    image: `${imageBase}/2026/07/DSCF1954-210x140.jpg`,
+    title: "NDPC discusses proposed Black Star Stadium project",
+    category: "National",
+    image: `${imageBase}/2026/07/738261707_1310832421221148_3284326788718384143_n-225x150.jpg`,
     href: "#",
     time: "1 hour ago"
   },
   {
-    title: "Foreign Affairs outlines faster replacement for damaged passports",
-    category: "News",
-    image: `${imageBase}/2026/07/images-16-105x140.jpeg`,
+    title: "NDPC begins review of planning guidelines",
+    category: "National",
+    image: `${imageBase}/2026/07/1-17-225x150.jpg`,
     href: "#",
     time: "1 hour ago"
   },
   {
-    title: "Private school operators seek clarity on graduation directive",
-    category: "Education",
-    image: `${imageBase}/2026/07/images-21-210x140.jpeg`,
+    title: "Accra drainage buffer zones lost to encroachment",
+    category: "National",
+    image: `${imageBase}/2026/07/On-going-dredging-works-on-the-Odaw-drain-225x150.jpg`,
     href: "#",
     time: "2 hours ago"
   },
   {
-    title: "Public health teams warn flood waters could trigger disease risks",
-    category: "Health",
-    image: `${imageBase}/2026/07/DSCF1954-210x140.jpg`,
+    title: "Bawumia donates relief items to June 29 flood victims",
+    category: "Politics",
+    image: `${imageBase}/2026/07/DSCF2017-225x150.jpg`,
     href: "#",
     time: "2 hours ago"
   }
@@ -202,22 +202,22 @@ export const categoryBlocks: CategoryBlock[] = [
   {
     title: "Arts and Culture",
     lead: {
-      title: "Creative community prepares tribute concert for veteran performer",
+      title: "Lyrical Joe inspires resilience on new single Free Minds",
       category: "Arts",
-      image: `${imageBase}/2026/07/images-21-210x140.jpeg`,
+      image: `${imageBase}/2026/07/IMG_7481-330x194.jpeg`,
       href: "#"
     },
     stories: [
       {
-        title: "Gospel group reflects on unity, longevity, and live ministry",
+        title: "Taylor Swift and Travis Kelce wed in NYC ceremony",
         category: "Arts",
-        image: `${imageBase}/2026/07/images-21-210x140.jpeg`,
+        image: `${imageBase}/2026/07/2275167a4acd47cda5e2e077dbb5ee65_md-e1783144727157-330x176.webp`,
         href: "#"
       },
       {
-        title: "Film fans celebrate a new box-office milestone",
+        title: "When Malcolm Smiled earns Best Actor award at Cannes FIFI",
         category: "Arts",
-        image: `${imageBase}/2026/07/images-21-210x140.jpeg`,
+        image: `${imageBase}/2026/07/Screenshot-2026-07-03-at-2.56.25-pm-200x150.png`,
         href: "#"
       }
     ]
@@ -281,7 +281,7 @@ export const sectionPages: SectionPage[] = [
     stories: newsStories
   },
   {
-    slug: "arts-and-culture",
+    slug: "arts-culture",
     title: "Arts and Culture",
     description: "Music, film, stage, books, festivals, and the people shaping Ghana's creative scene.",
     featured: categoryBlocks[2].lead,
@@ -339,5 +339,9 @@ export const sectionPages: SectionPage[] = [
 ];
 
 export function getSectionPage(slug: string) {
+  if (slug === "arts-and-culture") {
+    return sectionPages.find((page) => page.slug === "arts-culture");
+  }
+
   return sectionPages.find((page) => page.slug === slug);
 }
