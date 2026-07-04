@@ -28,3 +28,5 @@ npm run build
 ## Vercel
 
 Import the repository into Vercel. The default build command is `npm run build` and the output is handled by Next.js automatically.
+
+If a deployment does not update after a push, confirm the Vercel project is connected to `Mohammed-Hardi/clone-myjoyonline` and that the production branch is `main`.
