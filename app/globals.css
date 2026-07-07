@@ -8,6 +8,14 @@
   --color-muted: #666666;
   --color-line: #e8e8e8;
   --color-soft: #f5f5f5;
+  --color-deep-surface: #090909;
+  --color-deep-text: #ffffff;
+  --color-deep-muted: rgb(255 255 255 / 0.72);
+  --color-deep-line: rgb(255 255 255 / 0.18);
+  --color-deep-accent: #ffb3b3;
+  --color-newsletter-input-bg: #ffffff;
+  --color-newsletter-input-text: #111111;
+  --color-newsletter-input-placeholder: #6b6b6b;
   --font-body: Arial, sans-serif;
   --font-display: Arial Narrow, Arial, sans-serif;
 }
@@ -18,6 +26,14 @@
   --color-muted: #bdbdbd;
   --color-line: #252525;
   --color-soft: #171717;
+  --color-deep-surface: #111111;
+  --color-deep-text: #f7f7f7;
+  --color-deep-muted: rgb(255 255 255 / 0.7);
+  --color-deep-line: rgb(255 255 255 / 0.14);
+  --color-deep-accent: #ff9f9f;
+  --color-newsletter-input-bg: #191919;
+  --color-newsletter-input-text: #f4f4f4;
+  --color-newsletter-input-placeholder: #9b9b9b;
 }
 
 * {
@@ -650,12 +666,13 @@ img {
   gap: 28px;
   align-items: center;
   padding: 32px;
-  background: var(--color-ink);
-  color: #ffffff;
+  background: var(--color-deep-surface);
+  border: 1px solid var(--color-deep-line);
+  color: var(--color-deep-text);
 }
 
 .newsletter-card span {
-  color: #ffb3b3;
+  color: var(--color-deep-accent);
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -671,7 +688,7 @@ img {
 .newsletter-card p {
   max-width: 540px;
   margin: 0;
-  color: rgb(255 255 255 / 0.76);
+  color: var(--color-deep-muted);
   font-size: 18px;
 }
 
@@ -693,10 +710,14 @@ img {
 .newsletter-card input {
   width: 100%;
   min-height: 48px;
-  border: 1px solid rgb(255 255 255 / 0.35);
-  background: #ffffff;
-  color: #111111;
+  border: 1px solid var(--color-deep-line);
+  background: var(--color-newsletter-input-bg);
+  color: var(--color-newsletter-input-text);
   padding: 0 14px;
+}
+
+.newsletter-card input::placeholder {
+  color: var(--color-newsletter-input-placeholder);
 }
 
 .newsletter-card button {
@@ -713,9 +734,83 @@ img {
   transform: translateY(1px);
 }
 
-.site-footer {
-  background: var(--color-ink);
+.article-shell {
+  max-width: 1040px;
+}
+
+.article-header {
+  display: grid;
+  gap: 12px;
+  padding: 24px 0 20px;
+  border-bottom: 8px solid var(--color-ink);
+}
+
+.article-header span {
+  width: fit-content;
+  padding: 9px 13px;
+  background: var(--color-red);
   color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.article-header h1 {
+  max-width: 900px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 7vw, 82px);
+  font-weight: 900;
+  line-height: 0.92;
+}
+
+.article-header p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.article-header time {
+  color: var(--color-muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.article-image {
+  position: relative;
+  min-height: 520px;
+  margin-top: 24px;
+  overflow: hidden;
+  background: var(--color-soft);
+}
+
+.article-image img {
+  object-fit: cover;
+}
+
+.article-copy {
+  display: grid;
+  gap: 18px;
+  max-width: 720px;
+  margin: 28px 0 0;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.article-copy p {
+  margin: 0;
+}
+
+.related-stories {
+  margin-top: 42px;
+}
+
+.site-footer {
+  background: var(--color-deep-surface);
+  border-top: 1px solid var(--color-deep-line);
+  color: var(--color-deep-text);
 }
 
 .footer-inner {
@@ -728,7 +823,7 @@ img {
 }
 
 .footer-inner strong {
-  color: #ffffff;
+  color: var(--color-deep-text);
   font-family: var(--font-display);
   font-size: 28px;
   text-transform: uppercase;
@@ -736,7 +831,7 @@ img {
 
 .footer-inner p {
   max-width: 370px;
-  color: rgb(255 255 255 / 0.7);
+  color: var(--color-deep-muted);
 }
 
 .footer-inner nav,
@@ -749,7 +844,7 @@ img {
 
 .footer-inner a,
 .footer-programs span {
-  color: rgb(255 255 255 / 0.82);
+  color: var(--color-deep-muted);
   font-weight: 750;
 }
 
@@ -901,5 +996,17 @@ img {
 
   .newsletter-card {
     padding: 24px;
+  }
+
+  .article-header h1 {
+    font-size: 40px;
+  }
+
+  .article-image {
+    min-height: 300px;
+  }
+
+  .article-copy {
+    font-size: 18px;
   }
 }

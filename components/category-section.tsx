@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CategoryBlock } from "@/lib/news-data";
+import { getStoryHref, type CategoryBlock } from "@/lib/news-data";
 import { StoryCard } from "@/components/story-card";
 
 type CategorySectionProps = {
@@ -19,9 +19,9 @@ export function CategorySection({ block }: CategorySectionProps) {
         <StoryCard story={block.lead} variant="media" />
         <div className="category-links">
           {block.stories.map((story) => (
-            <a key={story.title} href={story.href}>
+            <Link key={story.title} href={getStoryHref(story)}>
               {story.title}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { Story } from "@/lib/news-data";
+import Link from "next/link";
+import { getStoryHref, type Story } from "@/lib/news-data";
 
 type StoryCardProps = {
   story: Story;
@@ -7,15 +8,17 @@ type StoryCardProps = {
 };
 
 export function StoryCard({ story, variant = "compact" }: StoryCardProps) {
+  const href = getStoryHref(story);
+
   if (variant === "hero") {
     return (
       <article className="story-hero">
-        <a href={story.href} className="story-hero-image">
+        <Link href={href} className="story-hero-image">
           <Image src={story.image} alt={story.title} fill sizes="(max-width: 900px) 100vw, 52vw" priority />
           <span>{story.category}</span>
-        </a>
+        </Link>
         <div className="story-hero-copy">
-          <a href={story.href}>{story.title}</a>
+          <Link href={href}>{story.title}</Link>
           {story.summary ? <p>{story.summary}</p> : null}
         </div>
       </article>
@@ -25,12 +28,12 @@ export function StoryCard({ story, variant = "compact" }: StoryCardProps) {
   if (variant === "list") {
     return (
       <article className="story-list-card">
-        <a href={story.href} className="story-list-image">
+        <Link href={href} className="story-list-image">
           <Image src={story.image} alt={story.title} fill sizes="120px" />
-        </a>
+        </Link>
         <div>
           <span>{story.category}</span>
-          <a href={story.href}>{story.title}</a>
+          <Link href={href}>{story.title}</Link>
           {story.time ? <time>{story.time}</time> : null}
         </div>
       </article>
@@ -40,20 +43,20 @@ export function StoryCard({ story, variant = "compact" }: StoryCardProps) {
   if (variant === "media") {
     return (
       <article className="media-card">
-        <a href={story.href} className="media-image">
+        <Link href={href} className="media-image">
           <Image src={story.image} alt={story.title} fill sizes="(max-width: 700px) 90vw, 270px" />
-        </a>
-        <a href={story.href}>{story.title}</a>
+        </Link>
+        <Link href={href}>{story.title}</Link>
       </article>
     );
   }
 
   return (
     <article className="story-compact-card">
-      <a href={story.href} className="story-compact-image">
+      <Link href={href} className="story-compact-image">
         <Image src={story.image} alt={story.title} fill sizes="(max-width: 700px) 45vw, 220px" />
-      </a>
-      <a href={story.href}>{story.title}</a>
+      </Link>
+      <Link href={href}>{story.title}</Link>
     </article>
   );
 }

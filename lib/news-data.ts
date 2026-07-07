@@ -23,9 +23,9 @@ export const navItems = [
   { label: "Sports", href: "/sports" },
   { label: "Opinion", href: "/opinion" },
   { label: "Research", href: "/research" },
-  { label: "Live TV/Radio", href: "/live-tv-radio" },
+  { label: "Live TV/Radio", href: "/live" },
   { label: "Media", href: "/media" },
-  { label: "Elections", href: "/elections" }
+  { label: "Elections", href: "/election" }
 ];
 
 export const topStory: Story = {
@@ -156,22 +156,22 @@ export const categoryBlocks: CategoryBlock[] = [
   {
     title: "Business",
     lead: {
-      title: "Markets watch closely as flood disruption reaches workplaces",
+      title: "Workers of GNCCI members may stay home longer due to floods",
       category: "Business",
-      image: `${imageBase}/2026/07/Kasapreko-PLC-is-now-officially-listed-on-the-Ghana-Stock-Exchange-following-a-successful-IPO.-210x140.jpg`,
+      image: `${imageBase}/2025/07/Screenshot-2025-07-08-at-4.22.03%E2%80%AFam-330x159.png`,
       href: "#"
     },
     stories: [
       {
-        title: "GhIPSS pays dividend to central bank after strong transaction year",
+        title: "Ghana is paying billions for failure to prevent floods",
         category: "Business",
-        image: `${imageBase}/2026/07/Kasapreko-PLC-is-now-officially-listed-on-the-Ghana-Stock-Exchange-following-a-successful-IPO.-210x140.jpg`,
+        image: `${imageBase}/2026/07/DSCF1924-330x220.jpg`,
         href: "#"
       },
       {
-        title: "Shippers raise concern over container evacuation delays",
+        title: "New Cashew Council Ghana Board inaugurated",
         category: "Business",
-        image: `${imageBase}/2026/07/Kasapreko-PLC-is-now-officially-listed-on-the-Ghana-Stock-Exchange-following-a-successful-IPO.-210x140.jpg`,
+        image: `${imageBase}/2026/07/New-Cashew-Council-Ghana-Board-199x150.jpg`,
         href: "#"
       }
     ]
@@ -179,22 +179,22 @@ export const categoryBlocks: CategoryBlock[] = [
   {
     title: "Sports",
     lead: {
-      title: "Coach demands courage and character after tournament exit",
+      title: "Jerome Opoku reflects on Ghana's World Cup exit",
       category: "Sports",
-      image: `${imageBase}/2026/07/71c71019-de61-42e9-9c20-7ba04bf9877b.jpg-443x300.jpg`,
+      image: `${imageBase}/2026/07/Jerome-Opoku7-e1783143471580-330x180.png`,
       href: "#"
     },
     stories: [
       {
-        title: "Young referees learn what it takes to handle a final",
+        title: "Black Stars need time to adapt to Queiroz's philosophy",
         category: "Sports",
-        image: `${imageBase}/2026/07/71c71019-de61-42e9-9c20-7ba04bf9877b.jpg-443x300.jpg`,
+        image: `${imageBase}/2026/06/r1677527_1296x729_16-9-330x186.jpg`,
         href: "#"
       },
       {
-        title: "Fans ask for more investment in grassroots football",
+        title: "Ghana's World Cup dream ends after Arias winner",
         category: "Sports",
-        image: `${imageBase}/2026/07/71c71019-de61-42e9-9c20-7ba04bf9877b.jpg-443x300.jpg`,
+        image: `${imageBase}/2026/07/71c71019-de61-42e9-9c20-7ba04bf9877b.jpg-221x150.jpg`,
         href: "#"
       }
     ]
@@ -225,22 +225,22 @@ export const categoryBlocks: CategoryBlock[] = [
   {
     title: "Opinion",
     lead: {
-      title: "Accountability and planning must replace flood-season panic",
+      title: "Are our gyms saving lives or becoming sites of preventable death?",
       category: "Opinion",
-      image: `${imageBase}/2024/09/WhatsApp-Image-2024-09-25-at-10.45.10-3-210x140.jpeg`,
+      image: `${imageBase}/2025/01/Gym-330x220.jpg`,
       href: "#"
     },
     stories: [
       {
-        title: "Are public gyms doing enough to protect members?",
+        title: "Why Ghana's flooding crisis demands behavioural and legal shifts",
         category: "Opinion",
-        image: `${imageBase}/2026/07/DSCF1954-210x140.jpg`,
+        image: `${imageBase}/2026/07/DSCF1742-330x220.jpg`,
         href: "#"
       },
       {
-        title: "The city did not fail suddenly. It was warned repeatedly.",
+        title: "The Law 101 on removal of CJ Torkornoo",
         category: "Opinion",
-        image: `${imageBase}/2024/09/WhatsApp-Image-2024-09-25-at-10.45.10-3-210x140.jpeg`,
+        image: `${imageBase}/2026/07/Samson-Lardy-Anyenini-134x150.jpeg`,
         href: "#"
       }
     ]
@@ -272,6 +272,243 @@ export type SectionPage = {
 
 const sectionStoryPool = [...newsStories, topStory, inFocus, ...shorts, ...videos, ...categoryBlocks.flatMap((block) => [block.lead, ...block.stories])];
 
+const businessSectionStories: Story[] = [
+  categoryBlocks[0].lead,
+  ...categoryBlocks[0].stories,
+  {
+    title: "Ginger, shrimps, mangoes lead June food inflation price hikes",
+    category: "Business",
+    image: `${imageBase}/2025/08/image-910-225x126.png`,
+    href: "#"
+  },
+  {
+    title: "Agricwealth CEO urges diaspora investors to tap into agriculture",
+    category: "Business",
+    image: `${imageBase}/2026/06/IMG-20260629-WA0381-225x150.jpg`,
+    href: "#"
+  },
+  {
+    title: "Beyond Motivation: Building your farm based on numbers",
+    category: "Business",
+    image: `${imageBase}/2026/06/Kelvin_Quansah-200x150.png`,
+    href: "#"
+  },
+  {
+    title: "Floods are killing Ghana's economy one traffic jam at a time",
+    category: "Business",
+    image: `${imageBase}/2026/07/DSCF1742-225x150.jpg`,
+    href: "#"
+  }
+];
+
+const sportsSectionStories: Story[] = [
+  categoryBlocks[1].lead,
+  ...categoryBlocks[1].stories,
+  {
+    title: "Black Stars lost organisation after Senaya's injury",
+    category: "Sports",
+    image: `${imageBase}/2026/07/455e20d0-3764-11f1-879d-1b2f5c3919b8.png-225x127.webp`,
+    href: "#"
+  },
+  {
+    title: "Argentina survive Cabo Verde scare to book Egypt date",
+    category: "Sports",
+    image: `${imageBase}/2026/07/Screenshot-2026-07-04-012836-225x132.jpg`,
+    href: "#"
+  },
+  {
+    title: "Ati-Zigi, Inaki, Opoku return as Queiroz makes changes",
+    category: "Sports",
+    image: `${imageBase}/2026/07/Black-e1783126226108-225x106.jpg`,
+    href: "#"
+  },
+  {
+    title: "JoySports partners The Guardian UK for World Cup coverage",
+    category: "Sports",
+    image: `${imageBase}/2026/06/WhatsApp-Image-2026-06-03-at-14.36.47-120x150.jpeg`,
+    href: "#"
+  }
+];
+
+const opinionSectionStories: Story[] = [
+  categoryBlocks[3].lead,
+  ...categoryBlocks[3].stories,
+  {
+    title: "Ghana's flood response and the cost of budgeting by crisis",
+    category: "Opinion",
+    image: `${imageBase}/2026/07/WhatsApp-Image-2026-07-03-at-19.48.09-e1783109301404-173x150.jpeg`,
+    href: "#"
+  },
+  {
+    title: "Clean cities require citizens and proactive authorities",
+    category: "Opinion",
+    image: `${imageBase}/2026/07/Filthy-streets-Clean-cities-require-both-responsible-citizens-and-proactive-city-authorities-225x127.jpg`,
+    href: "#"
+  },
+  {
+    title: "MOBA '16: The brotherhood beyond the hills",
+    category: "Opinion",
+    image: `${imageBase}/2026/07/WhatsApp-Image-2026-07-03-at-11.34.11-200x150.jpeg`,
+    href: "#"
+  },
+  {
+    title: "A case for entrusting waste management to the Ghana Armed Forces",
+    category: "Opinion",
+    image: `${imageBase}/2026/07/Ghana-Armed-Forces-225x150.jpg`,
+    href: "#"
+  }
+];
+
+const researchSectionStories: Story[] = [
+  {
+    title: "LUV FACT-CHECK: NPP did not demand retraction from Kennedy Agyapong",
+    category: "Research",
+    image: `${imageBase}/2026/06/image-5-225x150.jpeg`,
+    href: "#"
+  },
+  {
+    title: "Afari Hospital criticism fact-check reviewed",
+    category: "Research",
+    image: `${imageBase}/2026/06/Afari-Military-Hospital-225x127.jpg`,
+    href: "#"
+  },
+  {
+    title: "Ghana records weakest Q1 budget execution since 2017",
+    category: "Research",
+    image: `${imageBase}/2026/06/A-New-Design-4-Made-with-PosterMyWall-3-225x129.jpg`,
+    href: "#"
+  },
+  {
+    title: "Immigration law that may have kept Partey out of Canada",
+    category: "Research",
+    image: `${imageBase}/2026/06/A-New-Design-3-2-225x129.jpg`,
+    href: "#"
+  },
+  {
+    title: "World Bank says fiscal controls delayed GARID project",
+    category: "Research",
+    image: `${imageBase}/2024/03/World-Bank-202x150.webp`,
+    href: "#"
+  },
+  {
+    title: "Nearly $1bn invested in flood control, yet Accra still floods",
+    category: "Research",
+    image: `${imageBase}/2024/09/WhatsApp-Image-2024-09-25-at-10.45.10-6-225x150.jpeg`,
+    href: "#"
+  }
+];
+
+const liveSectionStories: Story[] = [
+  {
+    title: "Joy News live audio from Accra",
+    category: "Live TV/Radio",
+    image: `${imageBase}/2024/09/listenlive.jpg`,
+    href: "#"
+  },
+  {
+    title: "Joy News live video stream",
+    category: "Live TV/Radio",
+    image: `${imageBase}/2024/09/Continue-watching-banner_Joy-News.jpg`,
+    href: "#"
+  },
+  {
+    title: "Joy Prime live video stream",
+    category: "Live TV/Radio",
+    image: `${imageBase}/2024/09/Continue-watching-banner_Joy-Prime.jpg`,
+    href: "#"
+  },
+  {
+    title: "Adom TV live stream",
+    category: "Live TV/Radio",
+    image: `${imageBase}/2024/12/Continue-watching-banner_Adom-TV-e1733136124955.jpg`,
+    href: "#"
+  },
+  {
+    title: "Download the MyJoyOnline mobile app",
+    category: "Live TV/Radio",
+    image: `${imageBase}/2019/11/appstore.png`,
+    href: "#"
+  }
+];
+
+const mediaSectionStories: Story[] = [
+  {
+    title: "MTN Ghana awards GH¢30,000 to SME Pitch winners",
+    category: "Media",
+    image: `${imageBase}/2024/09/Continue-watching-banner_Joy-News.jpg`,
+    href: "#"
+  },
+  {
+    title: "Photos: Government launches post-flood recovery exercise",
+    category: "Media",
+    image: `${imageBase}/2026/07/DSCF1742-225x150.jpg`,
+    href: "#"
+  },
+  {
+    title: "Photos: Republic Day Cadet Parade",
+    category: "Media",
+    image: `${imageBase}/2026/07/DSCF2017-225x150.jpg`,
+    href: "#"
+  },
+  {
+    title: "Photo Story: Flood response operations update",
+    category: "Media",
+    image: `${imageBase}/2026/07/737297485_1643274326750436_5315399169861643138_n-210x140.jpg`,
+    href: "#"
+  },
+  {
+    title: "Ahmed Suale suspect counsel disputes charge sheet",
+    category: "Media",
+    image: `${imageBase}/2026/07/image-330-225x150.png`,
+    href: "#"
+  },
+  {
+    title: "Greater Accra Minister sets deadline to fix street lights",
+    category: "Media",
+    image: `${imageBase}/2026/07/Sierra-Leone-President-Maada-Bio-1-225x150.jpg`,
+    href: "#"
+  }
+];
+
+const electionSectionStories: Story[] = [
+  {
+    title: "2024 Election Interactive Map",
+    category: "Elections",
+    image: `${imageBase}/2020/12/JOHN-DRAMANI-MAHAMA-NDC.jpg`,
+    href: "#"
+  },
+  {
+    title: "Dr. Mahamudu Bawumia profile and results",
+    category: "Elections",
+    image: `${imageBase}/2024/11/bawumia-new-small.png`,
+    href: "#"
+  },
+  {
+    title: "Petition challenges Suame NPP constituency certificate",
+    category: "Elections",
+    image: `${imageBase}/2026/07/image-327-225x150.png`,
+    href: "#"
+  },
+  {
+    title: "NPP beats NDC with 49% support in APL tracker",
+    category: "Elections",
+    image: `${imageBase}/2026/07/image_2026-07-02_185318142-e1783026306231-225x150.png`,
+    href: "#"
+  },
+  {
+    title: "NPP bars election committee members from contesting polls",
+    category: "Elections",
+    image: `${imageBase}/2026/04/Ablakwa-182x150.jpg`,
+    href: "#"
+  },
+  {
+    title: "Ghana nominates Dr Sylvia Adusu for ITLOS election",
+    category: "Elections",
+    image: `${imageBase}/2026/07/WhatsApp-Image-2026-07-02-at-17.56.25-200x150.jpeg`,
+    href: "#"
+  }
+];
+
 export const sectionPages: SectionPage[] = [
   {
     slug: "news",
@@ -292,49 +529,49 @@ export const sectionPages: SectionPage[] = [
     title: "Business",
     description: "Markets, banking, industry, entrepreneurship, consumer affairs, and economic policy.",
     featured: categoryBlocks[0].lead,
-    stories: [categoryBlocks[0].lead, ...categoryBlocks[0].stories]
+    stories: businessSectionStories
   },
   {
     slug: "sports",
     title: "Sports",
     description: "Football, athletics, fixtures, analysis, and stories from Ghanaian and global sport.",
-    featured: topStory,
-    stories: [topStory, categoryBlocks[1].lead, ...categoryBlocks[1].stories]
+    featured: categoryBlocks[1].lead,
+    stories: sportsSectionStories
   },
   {
     slug: "opinion",
     title: "Opinion",
     description: "Columns, analysis, civic debate, and sharp perspectives from trusted voices.",
     featured: categoryBlocks[3].lead,
-    stories: [categoryBlocks[3].lead, ...categoryBlocks[3].stories, inFocus]
+    stories: opinionSectionStories
   },
   {
     slug: "research",
     title: "Research",
     description: "Data-led reporting, explainers, studies, and public-interest investigations.",
-    featured: inFocus,
-    stories: [inFocus, newsStories[2], newsStories[5], categoryBlocks[3].lead]
+    featured: researchSectionStories[0],
+    stories: researchSectionStories
   },
   {
-    slug: "live-tv-radio",
+    slug: "live",
     title: "Live TV/Radio",
     description: "Listen live, follow Joy programming, and catch up on shows from the Joy brands.",
-    featured: videos[2],
-    stories: videos
+    featured: liveSectionStories[0],
+    stories: liveSectionStories
   },
   {
     slug: "media",
     title: "Media",
     description: "Video reports, podcasts, explainers, live shows, and multimedia updates.",
-    featured: videos[0],
-    stories: [...videos, ...shorts]
+    featured: mediaSectionStories[0],
+    stories: mediaSectionStories
   },
   {
-    slug: "elections",
+    slug: "election",
     title: "Elections",
     description: "Election news, campaign coverage, civic education, polling analysis, and result updates.",
-    featured: newsStories[4],
-    stories: [newsStories[4], categoryBlocks[3].lead, newsStories[0], inFocus]
+    featured: electionSectionStories[0],
+    stories: electionSectionStories
   }
 ];
 
@@ -343,5 +580,56 @@ export function getSectionPage(slug: string) {
     return sectionPages.find((page) => page.slug === "arts-culture");
   }
 
+  if (slug === "live-tv-radio") {
+    return sectionPages.find((page) => page.slug === "live");
+  }
+
+  if (slug === "elections") {
+    return sectionPages.find((page) => page.slug === "election");
+  }
+
   return sectionPages.find((page) => page.slug === slug);
+}
+
+export function slugifyStoryTitle(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function getStoryHref(story: Pick<Story, "href" | "title">) {
+  if (story.href && story.href !== "#") {
+    return story.href;
+  }
+
+  return `/story/${slugifyStoryTitle(story.title)}`;
+}
+
+export function getAllStories() {
+  const stories = [
+    topStory,
+    inFocus,
+    ...newsStories,
+    ...shorts,
+    ...videos,
+    ...categoryBlocks.flatMap((block) => [block.lead, ...block.stories]),
+    ...sectionPages.flatMap((page) => [page.featured, ...page.stories])
+  ];
+  const uniqueStories = new Map<string, Story>();
+
+  stories.forEach((story) => {
+    const slug = slugifyStoryTitle(story.title);
+
+    if (!uniqueStories.has(slug)) {
+      uniqueStories.set(slug, story);
+    }
+  });
+
+  return Array.from(uniqueStories.values());
+}
+
+export function getStoryBySlug(slug: string) {
+  return getAllStories().find((story) => slugifyStoryTitle(story.title) === slug);
 }

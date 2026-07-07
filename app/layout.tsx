@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +14,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
+      <Script
+        id="theme-init"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              var storedTheme = localStorage.getItem("joy-theme");
+              if (storedTheme === "dark" || storedTheme === "light") {
+                document.documentElement.dataset.theme = storedTheme;
+              }
+            } catch (error) {}
+          `
+        }}
+      />
       <body>{children}</body>
     </html>
   );

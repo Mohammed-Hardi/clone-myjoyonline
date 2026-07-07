@@ -6,7 +6,7 @@ import { ShortsRail } from "@/components/shorts-rail";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StoryCard } from "@/components/story-card";
-import { categoryBlocks, inFocus, mostRecent, newsStories, podcasts, shorts, topStory, videos } from "@/lib/news-data";
+import { categoryBlocks, getStoryHref, inFocus, mostRecent, newsStories, podcasts, shorts, topStory, videos } from "@/lib/news-data";
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
               <AdBanner compact />
               <article className="focus-card">
                 <span>{inFocus.category}</span>
-                <a href={inFocus.href}>{inFocus.title}</a>
+                <Link href={getStoryHref(inFocus)}>{inFocus.title}</Link>
                 <p>{inFocus.summary}</p>
               </article>
             </aside>
@@ -56,10 +56,10 @@ export default function Home() {
 
           <ShortsRail shorts={shorts} />
 
-          <section className="podcast-strip" id="live-tv-radio" aria-labelledby="podcasts-heading">
+          <section className="podcast-strip" id="live" aria-labelledby="podcasts-heading">
             <div className="section-heading">
               <h2 id="podcasts-heading">Podcasts</h2>
-              <Link href="/live-tv-radio">Listen live</Link>
+              <Link href="/live">Listen live</Link>
             </div>
             <div className="podcast-grid">
               {podcasts.map((podcast) => (
