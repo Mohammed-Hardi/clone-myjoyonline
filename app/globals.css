@@ -803,6 +803,28 @@ img {
   margin: 0;
 }
 
+.article-source-note {
+  color: var(--color-muted);
+  font-size: 16px;
+}
+
+.article-source-link {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  background: var(--color-red);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.article-source-link:active {
+  transform: translateY(1px);
+}
+
 .related-stories {
   margin-top: 42px;
 }

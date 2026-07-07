@@ -3,14 +3,14 @@ import { NewsletterCard } from "@/components/newsletter-card";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StoryCard } from "@/components/story-card";
-import { categoryBlocks, newsStories, shorts, topStory, videos } from "@/lib/news-data";
+import { getAllStories } from "@/lib/news-data";
 
 export const metadata: Metadata = {
   title: "Search | Joy Online Clone",
   description: "Search the Joy Online clone story archive."
 };
 
-const searchStories = [topStory, ...newsStories, ...shorts, ...videos, ...categoryBlocks.flatMap((block) => [block.lead, ...block.stories])];
+const searchStories = getAllStories();
 
 export default function SearchPage() {
   return (

@@ -4,7 +4,8 @@ import { NewsletterCard } from "@/components/newsletter-card";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StoryCard } from "@/components/story-card";
-import { getSectionPage, mostRecent, sectionPages } from "@/lib/news-data";
+import { getSectionPage, getStoryHref, mostRecent, sectionPages } from "@/lib/news-data";
+import Link from "next/link";
 
 type SectionRouteProps = {
   params: Promise<{
@@ -66,8 +67,8 @@ export default async function SectionPage({ params }: SectionRouteProps) {
               <h2 id="section-recent-heading">Most Recent</h2>
               <ol>
                 {mostRecent.slice(0, 8).map((item) => (
-                  <li key={item}>
-                    <a href="#">{item}</a>
+                  <li key={item.title}>
+                    <Link href={getStoryHref(item)}>{item.title}</Link>
                   </li>
                 ))}
               </ol>

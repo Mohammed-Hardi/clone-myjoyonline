@@ -46,8 +46,8 @@ export default function Home() {
               <h2 id="recent-heading">Most Recent</h2>
               <ol>
                 {mostRecent.map((item) => (
-                  <li key={item}>
-                    <a href="#">{item}</a>
+                  <li key={item.title}>
+                    <Link href={getStoryHref(item)}>{item.title}</Link>
                   </li>
                 ))}
               </ol>

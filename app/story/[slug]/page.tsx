@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: StoryRouteProps): Promise<Met
 
   return {
     title: `${story.title} | Joy Online Clone`,
-    description: story.summary ?? `${story.category} story from the Joy Online clone archive.`
+    description: story.summary ?? `${story.category} story sourced from MyJoyOnline.`
   };
 }
 
@@ -51,8 +51,8 @@ export default async function StoryPage({ params }: StoryRouteProps) {
           <header className="article-header">
             <span>{story.category}</span>
             <h1>{story.title}</h1>
-            <p>{story.summary ?? "Follow the latest updates, context, and reactions from this developing story."}</p>
-            {story.time ? <time>{story.time}</time> : null}
+            {story.summary ? <p>{story.summary}</p> : null}
+            {story.publishedAt ? <time dateTime={story.publishedAt}>{story.time}</time> : story.time ? <time>{story.time}</time> : null}
           </header>
 
           <div className="article-image">
@@ -60,15 +60,13 @@ export default async function StoryPage({ params }: StoryRouteProps) {
           </div>
 
           <div className="article-copy">
-            <p>
-              This report brings together the key details, public reaction, and background needed to understand the story as it develops.
-            </p>
-            <p>
-              Editors are tracking updates from officials, eyewitnesses, and affected communities to keep readers informed with clear and verified context.
-            </p>
-            <p>
-              More information will be added as new details become available through the Joy Online clone archive.
-            </p>
+            {story.summary ? <p>{story.summary}</p> : null}
+            <p className="article-source-note">This clone uses the source headline, image, category, time, and excerpt from MyJoyOnline.</p>
+            {story.sourceUrl ? (
+              <a className="article-source-link" href={story.sourceUrl} target="_blank" rel="noreferrer">
+                Read the full story on MyJoyOnline
+              </a>
+            ) : null}
           </div>
 
           {relatedStories.length > 0 ? (
